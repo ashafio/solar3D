@@ -8,19 +8,34 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Home from './Home.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/earth",
+        element: <MyEarth></MyEarth>,
+      },
+      {
+        path: "/moon",
+        element: <MyMoon></MyMoon>,
+      },
+    ],
   },
-  {
-    path: "/earth",
-    element: <MyEarth></MyEarth>,
-  },
-  {
-    path: "/moon",
-    element: <MyMoon></MyMoon>,
-  },
+  // {
+  //   path: "/earth",
+  //   element: <MyEarth></MyEarth>,
+  // },
+  // {
+  //   path: "/moon",
+  //   element: <MyMoon></MyMoon>,
+  // },
 
 ]);
 

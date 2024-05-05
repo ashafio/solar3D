@@ -4,20 +4,20 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Canvas } from '@react-three/fiber'
 import { Environment, OrbitControls } from '@react-three/drei'
-import Moon from '../moon/Moon'
+import Moon from '../public/Moon'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1 className='text-red-600 text-3xl font-bold'>Earth</h1>
+      <h1 className='text-red-600 text-3xl font-bold'>Moon</h1>
       
       <Canvas>
         <ambientLight intensity={0.5}></ambientLight>
         <OrbitControls enableZoom={false}></OrbitControls>
         <Suspense fallback={null}>
-          <Moon/>
+          <Moon></Moon>
         </Suspense>
         <Environment preset='sunset'></Environment>
       </Canvas>
