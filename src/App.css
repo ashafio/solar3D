@@ -1,8 +1,14 @@
 body{
-    background-color: slategray;
+    /* background-color: rgb(23, 159, 159); */
+    background: linear-gradient(to right, #222d2c 0%, #555b5b 100%);
+
 }
 
 canvas{
     height: 100vh !important;
 
+}
+
+h1,h2,h3,p{
+    color: white;
 }
