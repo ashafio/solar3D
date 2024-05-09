@@ -1,30 +1,40 @@
-import { useState,Suspense } from 'react'
+import { useState, Suspense } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Canvas } from '@react-three/fiber'
 import { Environment, OrbitControls } from '@react-three/drei'
 import Moon from '../public/Moon'
+import { Link } from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1 className='text-red-600 text-3xl font-bold'>Moon</h1>
-      
-      <Canvas>
-        <ambientLight intensity={0.5}></ambientLight>
-        <OrbitControls enableZoom={false}></OrbitControls>
-        <Suspense fallback={null}>
-          <Moon></Moon>
-        </Suspense>
-        <Environment preset='sunset'></Environment>
-      </Canvas>
-      <div>
-        <p>
-        Moon, our precious blue oasis in the vast expanse of space, teems with life in all its diversity. From the towering mountains to the depths of the oceans, Earth is a planet of wonder and beauty. Its atmosphere blankets us, providing the air we breathe and the weather that shapes our world. It's a delicate balance, a symphony of ecosystems intertwined, sustaining life in its myriad forms. As we gaze upon its splendor, let us cherish and protect this remarkable home we call Earth, for it is the only one we have.
-        </p>
+      <h1 className='text-white text-center py-4 text-3xl font-bold'>Moon</h1>
+
+      <div className='sm:grid grid-cols-1 lg:flex justify-center'>
+        <div className='w-1/2'>
+          <Canvas>
+            <ambientLight intensity={0.5}></ambientLight>
+            <OrbitControls enableZoom={false}></OrbitControls>
+            <Suspense fallback={null}>
+              <Moon></Moon>
+            </Suspense>
+            <Environment preset='sunset'></Environment>
+          </Canvas>
+        </div>
+        <div className='flex items-center justify-center'>
+          <div className="card w-96 bg-primary text-primary-content">
+            <div className="card-body">
+              <h2 className="card-title">Moon</h2>
+              <p>Earth's moon is the fifth-largest moon in the solar system and the only natural satellite of Earth. It has a heavily cratered surface and no atmosphere. The Moon's gravitational pull influences Earth's tides and has been the target of both human and robotic exploration.</p>
+              <div className="card-actions justify-end">
+                <button className="btn" ><Link target='_blank' to='https://en.wikipedia.org/wiki/Moon'>Learn More</Link></button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )

@@ -5,21 +5,16 @@ import './App.css'
 import { Canvas } from '@react-three/fiber'
 import { Environment, OrbitControls } from '@react-three/drei'
 import Earth from '../public/Earth'
+import { Link } from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1 className='text-red-600 text-3xl font-bold'>Earth</h1>
+      <h1 className='text-white text-center py-4 text-3xl font-bold'>Earth</h1>
 
-      <div>
-      <div>
-          <p>
-            Earth, our precious blue oasis in the vast expanse of space, teems with life in all its diversity. From the towering mountains to the depths of the oceans, Earth is a planet of wonder and beauty. Its atmosphere blankets us, providing the air we breathe and the weather that shapes our world. It's a delicate balance, a symphony of ecosystems intertwined, sustaining life in its myriad forms. As we gaze upon its splendor, let us cherish and protect this remarkable home we call Earth, for it is the only one we have.
-          </p>
-        </div>
-        <div>
+      <div className='flex justify-center'>
+        <div className='w-1/2'>
           <Canvas>
             <ambientLight intensity={0.5}></ambientLight>
             <OrbitControls enableZoom={false}></OrbitControls>
@@ -29,7 +24,17 @@ function App() {
             <Environment preset='sunset'></Environment>
           </Canvas>
         </div>
-        
+        <div className='flex items-center justify-center'>
+          <div className="card w-96 bg-primary text-primary-content">
+            <div className="card-body">
+              <h2 className="card-title">Earth</h2>
+              <p>Earth is the only known planet to support life. It has a diverse range of ecosystems, including oceans, continents, and an atmosphere that sustains a variety of life forms. It's the fifth-largest planet in the solar system and the third planet from the Sun.</p>
+              <div className="card-actions justify-end">
+                <button className="btn" ><Link target='_blank' to='https://en.wikipedia.org/wiki/Earth'>Learn More</Link></button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )
